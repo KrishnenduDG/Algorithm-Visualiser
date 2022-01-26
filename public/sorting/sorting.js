@@ -103,8 +103,11 @@ class SortingVisualiser {
   }
 
   startSort = () => {
-    // Disabling the Start sort Button while starting the Sort
+    // Disabling the Controls while starting the Sort
     this.startSortButton.setAttribute("disabled", true);
+    this.sortingSpeedSelector.setAttribute("disabled", true);
+    this.arraySizeSelector.setAttribute("disabled", true);
+
     this.i = 0;
     this.j = 1;
 
@@ -141,10 +144,12 @@ class SortingVisualiser {
         // Finally uncoloring the whole array on the screen
         this.color_uncolor();
 
-        // Again make the StartSort button Functional
+        // Enabling the Controls
         this.startSortButton.removeAttribute("disabled");
+        this.arraySizeSelector.removeAttribute("disabled");
+        this.sortingSpeedSelector.removeAttribute('disabled');
       }
-    }, 1000 / this.sortingSpeed);
+    }, 3000* 1/(this.sortingSpeed));
   };
 }
 
