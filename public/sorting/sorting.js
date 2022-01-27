@@ -21,12 +21,27 @@ class SortingVisualiser {
       this.showArrayOnScreen();
     });
 
+    // Code for Ultra Slow and Ultra Fast Button
+    this.ultra_fast_btn = document.getElementById('ultra-fast');
+    this.ultra_slow_btn = document.getElementById('ultra-slow');
+
+    this.ultra_slow_btn.addEventListener('click',() => {
+      this.sortingSpeed = 15;
+    })
+
+    this.ultra_fast_btn.addEventListener('click',() => {
+      this.sortingSpeed = 500;
+    })
+
+
     // Code for Sorting Speed Selector
     this.sortingSpeedSelector = document.getElementById("sorting-speed");
 
     this.sortingSpeed = this.sortingSpeedSelector.value;
 
     this.sortingSpeedSelector.addEventListener("input", () => {
+      this.ultra_fast_btn.checked = false;
+      this.ultra_slow_btn.checked = false;
       this.sortingSpeed = this.sortingSpeedSelector.value;
     });
 
@@ -107,6 +122,8 @@ class SortingVisualiser {
     this.startSortButton.setAttribute("disabled", true);
     this.sortingSpeedSelector.setAttribute("disabled", true);
     this.arraySizeSelector.setAttribute("disabled", true);
+    this.ultra_fast_btn.setAttribute('disabled',true);
+    this.ultra_slow_btn.setAttribute('disabled',true);
 
     this.i = 0;
     this.j = 1;
@@ -148,6 +165,8 @@ class SortingVisualiser {
         this.startSortButton.removeAttribute("disabled");
         this.arraySizeSelector.removeAttribute("disabled");
         this.sortingSpeedSelector.removeAttribute('disabled');
+        this.ultra_fast_btn.removeAttribute('disabled');
+        this.ultra_slow_btn.removeAttribute('disabled');
       }
     }, 3000* 1/(this.sortingSpeed));
   };
