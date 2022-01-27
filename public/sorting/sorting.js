@@ -115,6 +115,16 @@ class SortingVisualiser {
       let elem = this.createElem(this.array[i]);
       this.arrayElemsContainer.appendChild(elem);
     }
+
+    // Getting all the Array elements on the screen
+    this.array_elems = document.getElementsByClassName("array-elems");
+
+    // Color the Required Elements if applicable
+    if(this.i && this.j && this.i >=0 && this.j >= 0)
+    {
+      this.array_elems[this.i].style.backgroundColor = 'red';
+      this.array_elems[this.j].style.backgroundColor ='green';
+    }
   }
 
   startSort = () => {
